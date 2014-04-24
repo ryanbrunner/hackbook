@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   has_many :posts
+  has_many :friendships
+  has_many :friends, through: :friendships
 
   def self.named(name)
     where(name: name)
