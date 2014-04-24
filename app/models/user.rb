@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   validates :email, presence: true
+
+  has_many :posts
 
   def self.named(name)
     where(name: name)
