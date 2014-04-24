@@ -4,13 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-  end
-
-  def search
-    @users = User.named(params[:q])
-
-    render 'index'
+    @users = if params[:q].present?
+      User.named(params[:q])
+    else
+      User.all
+    end
   end
 
   # GET /users/1
