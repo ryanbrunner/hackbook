@@ -1,23 +1,9 @@
 <h1>Listing users</h1>
 
 <table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Date of birth</th>
-    </tr>
-  </thead>
+  <%= render 'users_header' %>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.date_of_birth %></td>
-      </tr>
-    <% end %>
+    <%= render @users %>
   </tbody>
 </table>
-
-<br>

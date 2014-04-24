@@ -1,4 +1,5 @@
 Hackbook::Application.routes.draw do
+  resources :friends, only: [:index]
   resources :posts
 
   devise_for :users
