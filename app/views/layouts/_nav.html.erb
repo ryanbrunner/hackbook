@@ -5,19 +5,21 @@
       <a class="navbar-brand" href="/">Hackbook</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Events", '#' %></li>
-      </ul>
+    <% if user_signed_in? %>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Events", '#' %></li>
+        </ul>
 
-      <%= form_tag users_path, method: :get, class: "navbar-form navbar-left", role: 'search' do %>
-        <div class="form-group">
-          <%= text_field_tag :q, params[:q], placeholder: 'Search', class: 'form-control' %>
-          <%= submit_tag 'Search', class: 'btn btn-default' %>
-        </div>
-      <% end %>
-    </div><!-- /.navbar-collapse -->
+        <%= form_tag users_path, method: :get, class: "navbar-form navbar-left", role: 'search' do %>
+          <div class="form-group">
+            <%= text_field_tag :q, params[:q], placeholder: 'Search', class: 'form-control' %>
+            <%= submit_tag 'Search', class: 'btn btn-default' %>
+          </div>
+        <% end %>
+      </div><!-- /.navbar-collapse -->
+    <% end %>
   </div><!-- /.container-fluid -->
 </nav>
